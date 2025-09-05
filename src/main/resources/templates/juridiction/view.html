@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <th:block th:replace="layout :: common-head">
+        <title>Gestion Affaires Juridiques</title>
+    </th:block>
+</head>
+
+<body>
+    <header th:replace="layout :: header-and-nav">
+        <h1>GAJ</h1>
+    </header>
+
+    <main class="container">
+
+        <h1 class="title">
+            [[#{juridiction.information}]] [[${juridiction.idJuridiction}]]
+        </h1>
+
+        <div class="content">
+            <table class="table">
+
+                <tr>
+                    <th>[[#{juridiction.idJuridiction}]]</th> 
+                    <td>[[${juridiction.idJuridiction}]]</td>
+                </tr>
+
+				<tr>
+                    <th>[[#{juridiction.nom}]]</th>
+                    <td>[[${juridiction.nom}]]</td>
+                </tr>
+
+                <tr>
+                    <th>[[#{juridiction.email}]]</th>
+                    <td>[[${juridiction.email}]]</td>
+                </tr>
+                <tr>
+                    <th>[[#{juridiction.telephone}]]</th>
+                    <td>[[${juridiction.telephone}]]</td>
+                </tr>
+				<tr>
+                    <th>[[#{juridiction.fax}]]</th>
+                    <td>[[${juridiction.fax}]]</td>
+                </tr>
+                <tr>
+                    <th>[[#{juridiction.adresse}]]</th>
+                    <td>[[${juridiction.adresse}]]</td>
+                </tr>
+                <tr>
+                    <th>[[#{juridiction.adresseComplement}]]</th>
+                    <td>[[${juridiction.adresseComplement}]]</td>
+                </tr>
+                <tr>
+                    <th>[[#{juridiction.ville}]]</th>
+                    <td>[[${juridiction.ville}]]</td>
+                </tr>
+                <tr>
+                    <th>[[#{juridiction.codePostal}]]</th>
+                    <td>[[${juridiction.codePostal}]]</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </main>
+
+    <th:block th:replace="layout :: footer-and-js">
+
+    </th:block>
+</body>
+
+</html>

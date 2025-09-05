@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <th:block th:replace="layout :: common-head">
+        <title>Gestion Affaires Juridiques</title>
+    </th:block>
+</head>
+
+<body>
+    <header th:replace="layout :: header-and-nav">
+        <h1>GAJ</h1>
+    </header>
+
+    <main class="section">
+        <div class="container">
+            <div class="table-container">
+                <table class="table is-striped">
+                    <tr th:each="a: ${avocats}">
+                        <td>
+                            <a href="#" th:href="@{/office/avocat/view(id=${a.idAvocat})}">
+                                [[(${a.idAvocat}) + ' ' + ${a.nom} + ' ' + ${a.prenom}]]
+                            </a>
+							
+						</td>
+						<td>
+							<a href="#" th:href="@{/office/avocat/update(id=${a.idAvocat})}">
+                                Modifier
+                            </a>
+						</td>
+						<td>							
+							<a href="#" th:href="@{|/office/avocat/delete/${a.idAvocat}|}">
+                                Supprimer
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </main>
+    <th:block th:replace="layout :: footer-and-js">
+    </th:block>
+</body>
+
+</html>

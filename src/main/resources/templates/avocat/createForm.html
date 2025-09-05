@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<th:block th:replace="layout :: common-head">
+		<title>Gestion Affaires Juridiques</title>
+	</th:block>
+</head>
+
+<body>
+	<header th:replace="layout :: header-and-nav">
+		<h1>GAJ</h1>
+	</header>
+
+	<div class="container">
+		<h2 th:text="#{avocat.creation.form}"></h2>
+
+		<form action='#' th:action="@{/office/avocat/create}" method='post' class="box" th:object="${avocatForm}">
+			
+
+		<div class="field">
+				<label class="label">[[#{avocat.nom}]]</label>
+				<div class="control">
+					<input class="input" type="text" th:field="*{nom}">
+				</div>
+				<div class="message is-danger" th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}">
+				</div>
+			</div>
+
+			<div class="field">
+				<label class="label">[[#{avocat.prenom}]]</label>
+				<div class="control">
+					<input class="input" type="text" th:field="*{prenom}">
+				</div>
+				<div class="message is-danger" th:if="${#fields.hasErrors('prenom')}" th:errors="*{prenom}">
+				</div>
+			</div>
+
+
+			<div class="field">
+				<label class="label">[[#{avocat.email}]]</label>
+				<div class="control">
+					<input class="input" type="text" th:field="*{email}">
+				</div>
+				<div class="message is-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
+				</div>
+			</div>
+
+			<div class="field">
+				<label class="label">[[#{avocat.telephoneFixe}]]</label>
+				<div class="control">
+					<input class="input" type="text" th:field="*{telephoneFixe}">
+				</div>
+				<div class="message is-danger" th:if="${#fields.hasErrors('telephoneFixe')}" th:errors="*{telephoneFixe}">
+				</div>
+			</div>
+			
+			<div class="field">
+				<label class="label">[[#{avocat.telephoneMobile}]]</label>
+				<div class="control">
+					<input class="input" type="text" th:field="*{telephoneMobile}">
+				</div>
+				<div class="message is-danger" th:if="${#fields.hasErrors('telephoneMobile')}" th:errors="*{telephoneMobile}">
+				</div>
+			</div>
+
+			<div class="field">
+				<label class="label">[[#{avocat.adresse}]]</label>
+				<div class="control">
+					<input class="input" type="text" th:field="*{adresse}">
+				</div>
+				<div class="message is-danger" th:if="${#fields.hasErrors('adresse')}" th:errors="*{adresse}">
+				</div>
+			</div>
+
+			<div class="field">
+				<label class="label">[[#{avocat.adresseComplement}]]</label>
+				<div class="control">
+					<input class="input" type="text" th:field="*{adresseComplement}">
+				</div>
+				<div class="message is-danger" th:if="${#fields.hasErrors('adresseComplement')}" th:errors="*{adresseComplement}">
+				</div>
+			</div>
+
+			<div class="field">
+				<label class="label">[[#{avocat.ville}]]</label>
+				<div class="control">
+					<input class="input" type="text" th:field="*{ville}">
+				</div>
+				<div class="message is-danger" th:if="${#fields.hasErrors('ville')}" th:errors="*{ville}">
+				</div>
+			</div>
+
+			<div class="field">
+				<label class="label">[[#{avocat.codePostal}]]</label>
+				<div class="control">
+					<input class="input" type="text" th:field="*{codePostal}">
+				</div>
+				<div class="message is-danger" th:if="${#fields.hasErrors('codePostal')}" th:errors="*{codePostal}">
+				</div>
+			</div>
+
+
+			<div class="field is-grouped">
+				<div class="control">
+					<button class="button is-link">Submit</button>
+				</div>
+			</div>
+		</form>
+
+	</div>
+	<th:block th:replace="layout :: footer-and-js">
+
+	</th:block>
+</body>
+
+</html>

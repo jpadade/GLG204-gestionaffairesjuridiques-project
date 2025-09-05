@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <th:block th:replace="layout :: common-head">
+        <title>Gestion Affaires Juridiques</title>
+    </th:block>
+</head>
+
+<body>
+    <header th:replace="layout :: header-and-nav">
+        <h1>GAJ</h1>
+    </header>
+
+    <main class="container">
+
+        <h1 class="title">
+            [[#{avocat.information}]] [[${avocat.idAvocat}]]
+        </h1>
+
+        <div class="content">
+            <table class="table">
+
+                <tr>
+                    <th>[[#{avocat.idAvocat}]]</th> 
+                    <td>[[${avocat.idAvocat}]]</td>
+                </tr>
+
+                <tr>
+                    <th>[[#{avocat.prenom}]]</th>
+                    <td>[[${avocat.prenom}]]</td>
+                </tr>
+				<tr>
+                    <th>[[#{avocat.nom}]]</th>
+                    <td>[[${avocat.nom}]]</td>
+                </tr>
+
+                <tr>
+                    <th>[[#{avocat.email}]]</th>
+                    <td>[[${avocat.email}]]</td>
+                </tr>
+                <tr>
+                    <th>[[#{avocat.telephoneFixe}]]</th>
+                    <td>[[${avocat.telephoneFixe}]]</td>
+                </tr>
+				<tr>
+                    <th>[[#{avocat.telephoneMobile}]]</th>
+                    <td>[[${avocat.telephoneMobile}]]</td>
+                </tr>
+                <tr>
+                    <th>[[#{avocat.adresse}]]</th>
+                    <td>[[${avocat.adresse}]]</td>
+                </tr>
+                <tr>
+                    <th>[[#{avocat.adresseComplement}]]</th>
+                    <td>[[${avocat.adresseComplement}]]</td>
+                </tr>
+                <tr>
+                    <th>[[#{avocat.ville}]]</th>
+                    <td>[[${avocat.ville}]]</td>
+                </tr>
+                <tr>
+                    <th>[[#{avocat.codePostal}]]</th>
+                    <td>[[${avocat.codePostal}]]</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </main>
+
+    <th:block th:replace="layout :: footer-and-js">
+
+    </th:block>
+</body>
+
+</html>

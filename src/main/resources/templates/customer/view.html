@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <th:block th:replace="layout :: common-head">
+        <title>Gestion Affaires Juridiques</title>
+    </th:block>
+</head>
+
+<body>
+    <header th:replace="layout :: header-and-nav">
+        <h1>GAJ</h1>
+    </header>
+
+    <main class="container">
+
+        <h1 class="title">
+            [[#{client.information}]] [[${client.idClient}]]
+        </h1>
+
+        <div class="content">
+            <table class="table">
+
+                <tr>
+                    <th>[[#{client.idClient}]]</th> 
+                    <td>[[${client.idClient}]]</td>
+                </tr>
+				<tr>
+                    <th>[[#{client.civilite}]]</th>
+                    <td>[[${client.civilite}]]</td>
+                </tr>
+                <tr>
+                    <th>[[#{client.prenom}]]</th>
+                    <td>[[${client.prenom}]]</td>
+                </tr>
+				<tr>
+                    <th>[[#{client.nom}]]</th>
+                    <td>[[${client.nom}]]</td>
+                </tr>
+                <tr>
+                    <th>[[#{client.dateDeNaissance}]]</th>
+                    <td>[[${client.dateDeNaissance}]]</td>
+                </tr>
+				<tr>
+                    <th>[[#{client.departementDeNaissance}]]</th>
+                    <td>[[${client.departementDeNaissance}]]</td>
+                </tr>
+				<tr>
+                    <th>[[#{client.paysDeNaissance}]]</th>
+                    <td>[[${client.paysDeNaissance}]]</td>
+                </tr>
+				<tr>
+                    <th>[[#{client.nationalite}]]</th>
+                    <td>[[${client.nationalite}]]</td>
+                </tr>
+                <tr>
+                    <th>[[#{client.email}]]</th>
+                    <td>[[${client.email}]]</td>
+                </tr>
+                <tr>
+                    <th>[[#{client.telephoneFixe}]]</th>
+                    <td>[[${client.telephoneFixe}]]</td>
+                </tr>
+				<tr>
+                    <th>[[#{client.telephoneMobile}]]</th>
+                    <td>[[${client.telephoneMobile}]]</td>
+                </tr>
+                <tr>
+                    <th>[[#{client.adresse}]]</th>
+                    <td>[[${client.adresse}]]</td>
+                </tr>
+                <tr>
+                    <th>[[#{client.adresseComplement}]]</th>
+                    <td>[[${client.adresseComplement}]]</td>
+                </tr>
+                <tr>
+                    <th>[[#{client.ville}]]</th>
+                    <td>[[${client.ville}]]</td>
+                </tr>
+                <tr>
+                    <th>[[#{client.codePostal}]]</th>
+                    <td>[[${client.codePostal}]]</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </main>
+
+    <th:block th:replace="layout :: footer-and-js">
+
+    </th:block>
+</body>
+
+</html>
