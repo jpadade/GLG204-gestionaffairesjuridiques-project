@@ -1,0 +1,22 @@
+services:
+   web:
+    image: nginx:1.17
+    ports:
+      - 80:80
+
+
+   php:
+    image: php:7.2-fpm
+
+   phpmyamin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    environment:
+       PMA_USER: root
+       PMA_PASSWORD: glg204
+       PMA_ARBITRARY: 1
+
+    ports:
+      - 8000:80
+
+
