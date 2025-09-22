@@ -130,6 +130,26 @@
 
                             </div>
                         </div>
+												<div class="navbar-item has-dropdown is-hoverable">
+                            <a class="navbar-link" aria-haspopup="true" aria-controls="#dropdown-menu">
+                                [[#{menu.affaire.dropdown}]]
+                            </a>
+                            <div class="navbar-dropdown">
+                                <a class="navbar-item" sec:authorize-url="/office/affaire/list"
+                                    th:href="@{/office/affaire/list}">
+                                    [[#{menu.affaire.list}]]
+                                </a>
+                                <a class="navbar-item" sec:authorize-url="/office/affaire/search"
+                                    th:href="@{/office/affaire/search}">
+                                    [[#{menu.affaire.view}]]
+                                </a>
+  
+
+                                
+
+                            </div>
+                        </div>
+
 
                         <div class="navbar-item">
 

@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <th:block th:replace="layout :: common-head">
+        <title>Gestion Affaires Juridiques</title>
+    </th:block>
+</head>
+
+<body>
+    <header th:replace="layout :: header-and-nav">
+        <h1>GAJ</h1>
+    </header>
+
+    <main class="container">
+
+        <h1 class="title">
+            [[#{affaire.information}]] [[${affaire.idAffaire}]]
+        </h1>
+
+        <div class="content">
+            <table class="table">
+
+                <tr>
+                    <th>[[#{affaire.idAffaire}]]</th> 
+                    <td>[[${affaire.idAffaire}]]</td>
+                </tr>
+				<tr>
+                    <th>[[#{affaire.nomAffaire}]]</th>
+                    <td>[[${affaire.nomAffaire}]]</td>
+                </tr>
+                <tr>
+                    <th>[[#{affaire.numeroAffaire}]]</th>
+                    <td>[[${affaire.numeroAffaire}]]</td>
+                </tr>
+				<tr>
+                    <th>[[#{affaire.partieAdverse}]]</th>
+                    <td>[[${affaire.partieAdverse}]]</td>
+                </tr>
+                <tr>
+                    <th>[[#{affaire.statut}]]</th>
+                    <td>[[${affaire.statut}]]</td>
+                </tr>
+				<tr>
+                    <th>[[#{affaire.avocat}]]</th>
+                    <td>[[${affaire.avocat.nom}]]</td>
+                </tr>
+				<tr>
+                    <th>[[#{affaire.juridiction}]]</th>
+                    <td>[[${affaire.juridiction.nom}]]</td>
+                </tr>
+				<tr>
+                    <th>[[#{affaire.client}]]</th>
+                    <td>[[${affaire.client.nom}]] [[${affaire.client.prenom}]]</td>
+                </tr>
+                <tr>
+                    <th>[[#{affaire.typeAffaire}]]</th>
+                    <td>[[${affaire.typeAffaire.libelle}]]</td>
+                </tr>
+				 <tr>
+                    <th>[[#{affaire.documents}]]</th>
+                    <td>[[${affaire.documents}]]</td>
+                </tr>
+               
+			    <tr>
+                    <th> </th>
+					<td><a href="#" th:href="@{/office/affaire/update((id=${affaire.idAffaire})}">Modifier l'affaire</a></td>
+				</tr>
+				
+            </table>
+
+        </div>
+
+    </main>
+
+    <th:block th:replace="layout :: footer-and-js">
+
+    </th:block>
+</body>
+
+</html>

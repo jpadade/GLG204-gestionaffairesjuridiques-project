@@ -11,6 +11,8 @@ import org.springframework.validation.annotation.Validated;
 import com.adade.gestionaffairesjuridiques.common.exception.ObjectNotFoundException;
 import com.adade.gestionaffairesjuridiques.dao.AffaireDAO;
 import com.adade.gestionaffairesjuridiques.domaine.Affaire;
+import com.adade.gestionaffairesjuridiques.domaine.Avocat;
+import com.adade.gestionaffairesjuridiques.domaine.Client;
 import com.adade.gestionaffairesjuridiques.dto.AffaireDTO;
 
 @Service
@@ -19,6 +21,10 @@ import com.adade.gestionaffairesjuridiques.dto.AffaireDTO;
 public class AffaireServiceImpl implements AffaireService {
 	@Autowired
 	AffaireDAO affaireDAO;
+    @Autowired
+    DTOMapper myDTOMapper;
+   
+	
 	@Override
 	public Optional<AffaireDTO> findById(Long id) {
 		
@@ -49,15 +55,26 @@ public class AffaireServiceImpl implements AffaireService {
 	}
 
 	@Override
-	public Affaire save(Affaire a) {
+	public Affaire save(AffaireDTO a) {
 		
-		return affaireDAO.save(a);
+		 Affaire myAffaire = new Affaire();
+
+		 myDTOMapper.fillAffaireFromDTO(myAffaire, a);
+
+		
+		return affaireDAO.save(myAffaire);
 	}
 
 	@Override
-	public Affaire update(Affaire a) {
+	public Affaire update(AffaireDTO a) {
 		
-		return affaireDAO.save(a);
+		Affaire myAffaire = new Affaire(a.getIdAffaire(),a.getNomAffaire(),
+				a.getNumeroAffaire(),a.getPartieAdverse(),a.getStatut(),
+				a.getAvocat(),a.getJuridiction(),a.getClient(),a.getTypeAffaire(),
+				a.getDocuments());
+        myDTOMapper.fillAffaireUpdateFromDTO(myAffaire, a);
+		
+		return affaireDAO.save(myAffaire);
 	}
 
 }

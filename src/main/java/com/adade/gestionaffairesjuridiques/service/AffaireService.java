@@ -20,7 +20,7 @@ public interface AffaireService {
 	Optional<AffaireDTO> findByNumber(String numeroAffaire);
 	List<AffaireDTO> findAll();
 	void remove(Long id) throws ObjectNotFoundException;
-	Affaire save(Affaire a) ;
-	Affaire update(Affaire a);
+	Affaire save(AffaireDTO a) ;
+	Affaire update(AffaireDTO a);
 
 }

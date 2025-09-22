@@ -35,9 +35,9 @@ public class ClientServiceImpl   implements ClientService{
 	}
 
 	@Override
-	public Optional<ClientDTO> findByName(String name) {
+	public Optional<ClientDTO> findByNameAndFirstname(String name,String firstname) {
 		
-		return clientDAO.findByName(name).map(client -> DTOMapper.toDTO(client));
+		return clientDAO.findByNameAndFirstname(name, firstname).map(client -> DTOMapper.toDTO(client));
 	}
 
 	@Override

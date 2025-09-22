@@ -74,11 +74,8 @@ public class DTOMapper {
     }
     
     public static AffaireDTO toDTO(Affaire affaire) {
-    	Avocat avocat = affaire.getAvocat();
-    	Juridiction juridiction = affaire.getJuridication();
-    	Client client = affaire.getClient();
-    	TypeAffaire typeAffaire = affaire.getTypeAffaire();
-    	return new AffaireDTO(affaire.getIdAffaire(), affaire.getNomAffaire(),affaire.getNumeroAffaire(), affaire.getPartieAdverse(), affaire.getStatut(), avocat.getNom(), juridiction.getNom(), client.getNom(), typeAffaire.getLibelle(),affaire.getDocuments().toString());
+    	
+    	return new AffaireDTO(affaire.getIdAffaire(), affaire.getNomAffaire(),affaire.getNumeroAffaire(), affaire.getPartieAdverse(), affaire.getStatut(), affaire.getAvocat(),affaire.getJuridiction(),affaire.getClient(),affaire.getTypeAffaire(),affaire.getDocuments());
     }
     
     
@@ -178,4 +175,34 @@ public class DTOMapper {
     	j.setVille(juridictionDTO.getVille());
     	
     }
+    
+    public void fillAffaireFromDTO(Affaire a, AffaireDTO affaireDTO) {
+	   	
+    	a.setNomAffaire(affaireDTO.getNomAffaire());
+    	a.setNumeroAffaire(affaireDTO.getNumeroAffaire());
+    	a.setPartieAdverse(affaireDTO.getPartieAdverse());
+    	a.setStatut(affaireDTO.getStatut());
+    	a.setTypeAffaire(affaireDTO.getTypeAffaire());
+    	a.setJuridiction(affaireDTO.getJuridiction());
+    	a.setClient(affaireDTO.getClient());
+    	a.setAvocat(affaireDTO.getAvocat());
+    	a.setDocuments(affaireDTO.getDocuments());
+    	
+    }
+
+    public void fillAffaireUpdateFromDTO(Affaire a, AffaireDTO affaireDTO) {
+	   	
+    	a.setIdAffaire(affaireDTO.getIdAffaire());
+    	a.setNomAffaire(affaireDTO.getNomAffaire());
+    	a.setNumeroAffaire(affaireDTO.getNumeroAffaire());
+    	a.setPartieAdverse(affaireDTO.getPartieAdverse());
+    	a.setStatut(affaireDTO.getStatut());
+    	a.setTypeAffaire(affaireDTO.getTypeAffaire());
+    	a.setJuridiction(affaireDTO.getJuridiction());
+    	a.setClient(affaireDTO.getClient());
+    	a.setAvocat(affaireDTO.getAvocat());
+    	a.setDocuments(affaireDTO.getDocuments());
+    	
+    }
+
 }

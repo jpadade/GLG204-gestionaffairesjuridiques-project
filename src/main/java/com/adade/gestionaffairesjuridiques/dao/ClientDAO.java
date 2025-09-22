@@ -12,6 +12,6 @@ import com.adade.gestionaffairesjuridiques.domaine.Client;
 
 public interface ClientDAO extends JpaRepository<Client, Long> {
 	
-    @Query("select c from Client c where c.nom = :name")
-    Optional<Client> findByName(@Param("name") String name);
+    @Query("select c from Client c where c.nom = :name and c.prenom = :firstname")
+    Optional<Client> findByNameAndFirstname(@Param("name") String name,@Param("firstname") String fistname );
 }

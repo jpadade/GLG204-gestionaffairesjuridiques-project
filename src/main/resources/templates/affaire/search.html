@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <th:block th:replace="layout :: common-head">
+        <title>Gestion Affaire Juridiques</title>
+    </th:block>
+</head>
+
+<body>
+    <header th:replace="layout :: header-and-nav">
+        <h1>GAJ</h1>
+    </header>
+
+    <div class="container">
+
+        <form action='#' th:action="@{/office/affaire/view}" method='get' class="box">
+            <div class="field">
+                <label class="label">[[#{client.nom}]]</label>
+                <div class="control">
+                    <input class="input" name="nom" id="nom" type="text" th:placeholder="#{client.nom}">
+                </div>
+				<label class="label">[[#{client.prenom}]]</label>
+				 <div class="control">
+                    <input class="input" name="prenom" id="prenom" type="text" th:placeholder="#{client.prenom}">
+                </div>
+				            <div class="field is-grouped">
+                <div class="control">
+                    <button class="button is-link">Submit</button>
+                </div>
+            </div>
+            </div>
+        </form>
+    </div>
+
+
+
+    <th:block th:replace="layout :: footer-and-js">
+
+    </th:block>
+</body>
+
+</html>

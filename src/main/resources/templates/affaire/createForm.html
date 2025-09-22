@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<th:block th:replace="layout :: common-head">
+		<title>Gestion Affaires Juridiques</title>
+	</th:block>
+</head>
+
+<body>
+	<header th:replace="layout :: header-and-nav">
+		<h1>GAJ</h1>
+	</header>
+
+	<div class="container">
+		<h2 th:text="#{affaire.creation.form}"></h2>
+
+		<form action='#' th:action="@{/office/affaire/create}" method='post' class="box" th:object="${affaireForm}">
+			
+			<div class="field">
+				<label class="label">[[#{affaire.nomAffaire}]]</label>
+				<div class="control">
+					<input class="input" type="text" th:field="*{nomAffaire}">
+				</div>
+				<div class="message is-danger" th:if="${#fields.hasErrors('nomAffaire')}" th:errors="*{nomAffaire}">
+				</div>
+			</div>
+
+			<div class="field">
+				<label class="label">[[#{affaire.numeroAffaire}]]</label>
+				<div class="control">
+					<input class="input" type="text" th:field="*{numeroAffaire}">
+				</div>
+				<div class="message is-danger" th:if="${#fields.hasErrors('numeroAffaire')}" th:errors="*{numeroAffaire}">
+				</div>
+			</div>
+
+			<div class="field">
+				<label class="label">[[#{affaire.partieAdverse}]]</label>
+				<div class="control">
+					<input class="input" type="text" th:field="*{partieAdverse}">
+				</div>
+				<div class="message is-danger" th:if="${#fields.hasErrors('partieAdverse')}" th:errors="*{partieAdverse}">
+				</div>
+			</div>
+
+
+			<div class="field">
+				<label class="label">[[#{affaire.statut}]]</label>
+				<div class="control">
+				<select th:field="*{statut}">
+				<option th:each="s : ${statuts}" th:value="${s}" th:text=" ${s} " />
+				</select>
+					
+				</div>
+				<div class="message is-danger" th:if="${#fields.hasErrors('statut')}" th:errors="*{statut}">
+				</div>
+			</div>
+
+			<div class="field">
+				<label class="label">[[#{affaire.avocat}]]</label>
+				<div class="control">				
+				<select th:field="*{avocat}">
+				<option th:each="a : ${avocats}" th:value="${a.idAvocat}" th:text=" 'Me ' + ${a.nom} + ' ' +${a.prenom} " />
+				</select>
+					
+				</div>
+				<div class="message is-danger" th:if="${#fields.hasErrors('avocat')}" th:errors="*{avocat}">
+				</div>
+			</div>
+
+			<div class="field">
+				<label class="label">[[#{affaire.juridiction}]]</label>
+				<div class="control">
+				<select th:field="*{juridiction}">
+				<option th:each="j : ${juridictions}" th:value="${j.idJuridiction}" th:text=" ${j.nom} " />
+				</select>
+					
+				</div>
+				<div class="message is-danger" th:if="${#fields.hasErrors('juridiction')}" th:errors="*{juridiction}">
+				</div>
+			</div>
+			
+			<div class="field">
+				<label class="label">[[#{affaire.client}]]</label>
+				<div class="control">
+				<select th:field="*{client}">
+				<option th:each="c : ${client}" th:value="${c.idClient}" th:text=" ${c.civilite} + ' ' +${c.nom} +' '+${c.prenom} " />
+				</select>
+					
+				</div>
+				<div class="message is-danger" th:if="${#fields.hasErrors('client')}" th:errors="*{client}">
+				</div>
+			</div>
+
+			<div class="field">
+				<label class="label">[[#{affaire.typeAffaire}]]</label>
+				<div class="control">
+				<select th:field="*{typeAffaire}">
+				<option th:each="t : ${typeAffaires}" th:value="${t.idTypeAffaire}" th:text=" ${t.libelle} " />
+				</select>
+					
+				</div>
+				<div class="message is-danger" th:if="${#fields.hasErrors('typeAffaire')}" th:errors="*{typeAffaire}">
+				</div>
+			</div>
+
+			<div class="field">
+				<label class="label">[[#{affaire.documents}]]</label>
+				<div class="control">
+					<input class="input" type="text" th:field="*{documents}">
+				</div>
+				<div class="message is-danger" th:if="${#fields.hasErrors('documents')}" th:errors="*{documents}">
+				</div>
+			</div>
+			
+			<div class="field is-grouped">
+				<div class="control">
+					<button class="button is-link">Submit</button>
+				</div>
+			</div>
+		</form>
+
+	</div>
+	<th:block th:replace="layout :: footer-and-js">
+
+	</th:block>
+</body>
+
+</html>

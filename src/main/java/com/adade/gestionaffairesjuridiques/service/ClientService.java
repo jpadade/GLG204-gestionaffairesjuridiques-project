@@ -20,7 +20,7 @@ import com.adade.gestionaffairesjuridiques.ui.forms.CreateCustomerForm;
 public interface ClientService {
 	
 	Optional<ClientDTO> findById(Long id);
-	Optional<ClientDTO> findByName(String name);
+	Optional<ClientDTO> findByNameAndFirstname(String name,String firstname);
 	List<ClientDTO> findAll();
 	void remove(Long id) throws ObjectNotFoundException;
 	Client save(ClientDTO c) ;

@@ -27,7 +27,7 @@ public class Affaire {
 	
 	@ManyToOne
 	@JoinColumn(name="idJuridiction")
-	private Juridiction juridication;
+	private Juridiction juridiction;
 	
 	@ManyToOne
 	@JoinColumn(name="idClient")
@@ -49,20 +49,45 @@ public class Affaire {
 	}
 
 
+	public Affaire(Long idAffaire, String nomAffaire, String numeroAffaire, String partieAdverse, String statut,
+			Avocat avocat, Juridiction juridiction, Client client, TypeAffaire typeAffaire,
+			Collection<Document> documents) {
+		super();
+		this.idAffaire = idAffaire;
+		this.nomAffaire = nomAffaire;
+		this.numeroAffaire = numeroAffaire;
+		this.partieAdverse = partieAdverse;
+		this.statut = statut;
+		this.avocat = avocat;
+		this.juridiction = juridiction;
+		this.client = client;
+		this.typeAffaire = typeAffaire;
+		this.documents = documents;
+	}
+
+
 	public Affaire(String nomAffaire, String numeroAffaire, String partieAdverse, String statut, Avocat avocat,
-			Juridiction juridication, Client client, TypeAffaire typeAffaire, Collection<Document> documents) {
+			Juridiction juridiction, Client client, TypeAffaire typeAffaire, Collection<Document> documents) {
 		super();
 		this.nomAffaire = nomAffaire;
 		this.numeroAffaire = numeroAffaire;
 		this.partieAdverse = partieAdverse;
 		this.statut = statut;
 		this.avocat = avocat;
-		this.juridication = juridication;
+		this.juridiction = juridiction;
 		this.client = client;
 		this.typeAffaire = typeAffaire;
 		this.documents = documents;
 	}
 
+
+	public void setIdAffaire(Long idAffaire) {
+		this.idAffaire = idAffaire;
+	}
+	
+	public Long getIdAffaire() {
+		return idAffaire;
+	}
 
 	public String getNomAffaire() {
 		return nomAffaire;
@@ -114,13 +139,13 @@ public class Affaire {
 	}
 
 
-	public Juridiction getJuridication() {
-		return juridication;
+	public Juridiction getJuridiction() {
+		return juridiction;
 	}
 
 
-	public void setJuridication(Juridiction juridication) {
-		this.juridication = juridication;
+	public void setJuridiction(Juridiction juridiction) {
+		this.juridiction = juridiction;
 	}
 
 
@@ -154,16 +179,14 @@ public class Affaire {
 	}
 
 
-	public Long getIdAffaire() {
-		return idAffaire;
-	}
+
 
 
 	@Override
 	public String toString() {
 		return "Affaire [idAffaire=" + idAffaire + ", nomAffaire=" + nomAffaire + ", numeroAffaire=" + numeroAffaire
 				+ ", partieAdverse=" + partieAdverse + ", statut=" + statut + ", avocat=" + avocat + ", juridication="
-				+ juridication + ", client=" + client + ", typeAffaire=" + typeAffaire + ", documents=" + documents
+				+ juridiction + ", client=" + client + ", typeAffaire=" + typeAffaire + ", documents=" + documents
 				+ "]";
 	}
 
